@@ -2,7 +2,8 @@ import streamlit as st
 import pandas as pd
 import joblib
 # Load the trained Linear Regression model
-model = joblib.load("D:\crop\CROP_PREDICTOR\crop_prediction_model.pkl")
+model = joblib.load("crop_prediction_model.pkl")
+
 
 # Streamlit app
 st.title("Crop Predictor")
@@ -20,7 +21,8 @@ Humidity = st.sidebar.slider("Humidity", 14.0, 100.0, 0.08)
 pH = st.sidebar.slider("pH", 3.0, 10.0, 30.0)
 Rainfall = st.sidebar.slider("Rainfall", 20.0, 300.0, 100.0)
 
-df= pd.read_csv("D:\crop\CROP_PREDICTOR\Crop_recommendation.csv")
+df = pd.read_csv("Crop_recommendation.csv")
+
 c=df.label.astype('category')
 targets = dict(enumerate(c.cat.categories))
 crop_labels=list(targets.values())
